@@ -39,6 +39,13 @@
     <!-- Overlay para menú móvil -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
+    <!-- Modal para ampliar imágenes -->
+    <div id="imageModal" class="image-modal" style="display: none;">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
     <!-- Main Content -->
     <main>
       <!-- Instrucciones para contribuir -->
@@ -61,7 +68,11 @@
                   <img
                     src="../assets/guides-v2/Paso1.png"
                     alt="Paso 1: Acceder al repositorio"
-                    class="guide-image" />
+                    class="guide-image clickable-image"
+                    onclick="openImageModal(this)" />
+                  <div class="image-zoom-hint">
+                    <i class="fas fa-search-plus"></i> Click para ampliar
+                  </div>
                 </div>
                 <div class="code-example">
                   <pre><code># URL del repositorio
@@ -594,5 +605,56 @@ git push origin feat/new-tu-nickname</code></pre>
 
     <script src="../js/como-contribuir.js"></script>
     <script src="../js/script.js"></script>
+    <script>
+      // Funcionalidad para ampliar imágenes
+      function openImageModal(img) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeImageModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+
+      // Cerrar modal al hacer click en la X
+      document.getElementById('modalClose').addEventListener('click', closeImageModal);
+
+      // Cerrar modal al hacer click fuera de la imagen
+      document.getElementById('imageModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeImageModal();
+        }
+      });
+
+      // Cerrar modal con la tecla ESC
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeImageModal();
+        }
+      });
+
+      // Agregar la clase clickable a todas las imágenes de guía
+      document.addEventListener('DOMContentLoaded', function() {
+        const guideImages = document.querySelectorAll('.guide-image:not(.clickable-image)');
+        guideImages.forEach(img => {
+          img.classList.add('clickable-image');
+          img.setAttribute('onclick', 'openImageModal(this)');
+          
+          // Agregar hint de zoom si no existe
+          if (!img.nextElementSibling || !img.nextElementSibling.classList.contains('image-zoom-hint')) {
+            const hint = document.createElement('div');
+            hint.className = 'image-zoom-hint';
+            hint.innerHTML = '<i class="fas fa-search-plus"></i> Click para ampliar';
+            img.parentElement.appendChild(hint);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
