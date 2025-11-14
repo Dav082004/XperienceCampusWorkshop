@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teoría - Git y GitHub para Principiantes</title>
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/teoria.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-title">
+          <h1>Git&GitHubWorkshop</h1>
+        </div>
+        <nav class="header-nav" id="headerNav">
+          <a href="../index.html" class="nav-link">Inicio</a>
+          <a href="../index.html#participantes" class="nav-link">Colaboradores</a>
+          <a href="teoria.html" class="nav-link active">Teoría</a>
+          <a href="como-contribuir.html" class="nav-link">Cómo Contribuir</a>
+        </nav>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Overlay para menú móvil -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Main Content -->
+    <main>
+      
+      <!-- Sección Git Básico -->
+      <section id="git-basics" class="theory-section">
+        <div class="theory-container">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <h2 class="section-title">¿Qué es Git?</h2>
+            <p class="section-description">
+              Git es un sistema de control de versiones que te permite rastrear 
+              cambios en tu código y colaborar con otros desarrolladores.
+            </p>
+          </div>
+
+          <div class="concept-grid">
+            <!-- ¿Por qué Git? -->
+            <div class="concept-card animated">
+              <div class="concept-header">
+                <i class="fas fa-lightbulb concept-icon"></i>
+                <h3>Git es como... 📸</h3>
+              </div>
+              <div class="concept-content">
+                <div class="analogy-box">
+                  <p class="analogy-text">
+                    <strong>Imagina que Git es como una cámara súper inteligente</strong> que toma fotos de tu proyecto cada vez que haces cambios importantes.
+                  </p>
+                </div>
+                <div class="benefit-list">
+                  <div class="benefit-item">
+                    <i class="fas fa-camera"></i>
+                    <span><strong>Historial:</strong> Como un álbum de fotos de tu código</span>
+                  </div>
+                  <div class="benefit-item">
+                    <i class="fas fa-users"></i>
+                    <span><strong>Colaboración:</strong> Varios fotógrafos trabajando juntos</span>
+                  </div>
+                  <div class="benefit-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span><strong>Respaldo:</strong> Las fotos nunca se pierden</span>
+                  </div>
+                  <div class="benefit-item">
+                    <i class="fas fa-code-branch"></i>
+                    <span><strong>Ramas:</strong> Como tomar fotos en paralelo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Estados de Git -->
+            <div class="concept-card animated">
+              <div class="concept-header">
+                <i class="fas fa-layer-group concept-icon"></i>
+                <h3>Estados de Git: Como preparar una carta 📝</h3>
+              </div>
+              <div class="concept-content">
+                <div class="analogy-box">
+                  <p class="analogy-text">
+                    <strong>Piensa en Git como escribir una carta importante:</strong>
+                  </p>
+                </div>
+                <div class="git-states">
+                  <div class="state-item working">
+                    <div class="state-circle">1</div>
+                    <div class="state-info">
+                      <h4>📝 Escribiendo</h4>
+                      <p>Estás editando tu código, como escribir en un borrador</p>
+                    </div>
+                  </div>
+                  <div class="state-arrow">↓</div>
+                  <div class="state-item staging">
+                    <div class="state-circle">2</div>
+                    <div class="state-info">
+                      <h4>📋 Revisando</h4>
+                      <p>Seleccionas qué cambios incluir (git add), como elegir qué poner en la carta</p>
+                    </div>
+                  </div>
+                  <div class="state-arrow">↓</div>
+                  <div class="state-item committed">
+                    <div class="state-circle">3</div>
+                    <div class="state-info">
+                      <h4>📮 Enviando</h4>
+                      <p>Guardas los cambios permanentemente (git commit), como enviar la carta</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comandos Esenciales -->
+          <div class="commands-section">
+            <h3 class="commands-title">
+              <i class="fas fa-terminal"></i>
+              Comandos Esenciales de Git
+            </h3>
+            <div class="commands-grid">
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git init</code>
+                  <span class="command-type setup">Setup</span>
+                </div>
+                <p>Inicializar un nuevo repositorio Git</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplo:</span>
+                  <code>git init mi-proyecto</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git clone</code>
+                  <span class="command-type setup">Setup</span>
+                </div>
+                <p>Copiar un repositorio existente</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplo:</span>
+                  <code>git clone https://github.com/usuario/repo.git</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git status</code>
+                  <span class="command-type info">Info</span>
+                </div>
+                <p>Ver el estado actual de los archivos</p>
+                <div class="command-example">
+                  <span class="example-label">Uso:</span>
+                  <code>git status</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git add</code>
+                  <span class="command-type basic">Básico</span>
+                </div>
+                <p>Preparar archivos para commit</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplos:</span>
+                  <code>git add archivo.js</code><br>
+                  <code>git add .</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git commit</code>
+                  <span class="command-type basic">Básico</span>
+                </div>
+                <p>Guardar cambios con un mensaje</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplo:</span>
+                  <code>git commit -m "Agregar nueva función"</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git push</code>
+                  <span class="command-type sync">Sync</span>
+                </div>
+                <p>Enviar cambios al repositorio remoto</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplo:</span>
+                  <code>git push origin main</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git pull</code>
+                  <span class="command-type sync">Sync</span>
+                </div>
+                <p>Traer cambios del repositorio remoto</p>
+                <div class="command-example">
+                  <span class="example-label">Uso:</span>
+                  <code>git pull</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git branch</code>
+                  <span class="command-type branch">Branch</span>
+                </div>
+                <p>Crear y gestionar ramas</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplos:</span>
+                  <code>git branch nueva-rama</code><br>
+                  <code>git branch -d rama-vieja</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git checkout</code>
+                  <span class="command-type branch">Branch</span>
+                </div>
+                <p>Cambiar entre ramas</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplos:</span>
+                  <code>git checkout main</code><br>
+                  <code>git checkout -b nueva-rama</code>
+                </div>
+              </div>
+
+              <div class="command-card">
+                <div class="command-header">
+                  <code>git merge</code>
+                  <span class="command-type advanced">Avanzado</span>
+                </div>
+                <p>Combinar cambios de diferentes ramas</p>
+                <div class="command-example">
+                  <span class="example-label">Ejemplo:</span>
+                  <code>git merge feature-branch</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- GitFlow -->
+          <div class="gitflow-section">
+            <h3 class="gitflow-title">
+              <i class="fas fa-project-diagram"></i>
+              GitFlow: Flujo de Trabajo con Ramas
+            </h3>
+            <div class="gitflow-diagram">
+              <div class="flow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Main Branch</h4>
+                  <p>Rama principal con código estable</p>
+                  <div class="branch-visual main-branch"></div>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Feature Branch</h4>
+                  <p>Nueva rama para desarrollar características</p>
+                  <div class="branch-visual feature-branch"></div>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Pull Request</h4>
+                  <p>Solicitud para integrar cambios</p>
+                  <div class="branch-visual pr-branch"></div>
+                </div>
+              </div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Merge</h4>
+                  <p>Integración a la rama principal</p>
+                  <div class="branch-visual merged-branch"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección GitHub Ecosystem -->
+      <section id="github-ecosystem" class="theory-section github-section">
+        <div class="theory-container">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <h2 class="section-title">GitHub Ecosystem</h2>
+            <p class="section-description">
+              GitHub es una plataforma que extiende Git con herramientas de colaboración, 
+              gestión de proyectos y automatización.
+            </p>
+          </div>
+
+          <!-- Conceptos Fundamentales -->
+          <div class="ecosystem-grid">
+            <!-- Repository -->
+            <div class="ecosystem-card">
+              <div class="ecosystem-icon">
+                <i class="fas fa-folder-open"></i>
+              </div>
+              <h3>Repository 📁</h3>
+              <div class="analogy-mini">
+                <strong>Como una carpeta mágica</strong> que recuerda todos los cambios que has hecho.
+              </div>
+              <p>
+                Espacio donde se almacena tu proyecto con todo su historial de cambios. 
+                Puede ser público (visible para todos) o privado.
+              </p>
+              <div class="ecosystem-features">
+                <span class="feature-tag">Código</span>
+                <span class="feature-tag">Historial</span>
+                <span class="feature-tag">Colaboradores</span>
+              </div>
+            </div>
+
+            <!-- Issues -->
+            <div class="ecosystem-card">
+              <div class="ecosystem-icon">
+                <i class="fas fa-bug"></i>
+              </div>
+              <h3>Issues 🎫</h3>
+              <div class="analogy-mini">
+                <strong>Como tickets en el cine</strong> pero para problemas y ideas de tu proyecto.
+              </div>
+              <p>
+                Sistema para reportar bugs, solicitar características o discutir ideas. 
+                Como tickets de soporte para tu proyecto.
+              </p>
+              <div class="ecosystem-features">
+                <span class="feature-tag">Bugs</span>
+                <span class="feature-tag">Features</span>
+                <span class="feature-tag">Discusión</span>
+              </div>
+            </div>
+
+            <!-- Pull Requests -->
+            <div class="ecosystem-card">
+              <div class="ecosystem-icon">
+                <i class="fas fa-code-branch"></i>
+              </div>
+              <h3>Pull Requests 🤝</h3>
+              <div class="analogy-mini">
+                <strong>Como pedir permiso antes de entrar</strong> a la casa de alguien con tus cambios.
+              </div>
+              <p>
+                Propuesta de cambios al código. Permite revisar, discutir y aprobar 
+                modificaciones antes de integrarlas.
+              </p>
+              <div class="ecosystem-features">
+                <span class="feature-tag">Review</span>
+                <span class="feature-tag">Merge</span>
+                <span class="feature-tag">Colaboración</span>
+              </div>
+            </div>
+
+            <!-- GitHub Actions -->
+            <div class="ecosystem-card">
+              <div class="ecosystem-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <h3>GitHub Actions</h3>
+              <p>
+                Automatización de tareas como testing, deployment y integración continua. 
+                Robots que trabajan por ti.
+              </p>
+              <div class="ecosystem-features">
+                <span class="feature-tag">CI/CD</span>
+                <span class="feature-tag">Testing</span>
+                <span class="feature-tag">Deploy</span>
+              </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="ecosystem-card">
+              <div class="ecosystem-icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <h3>Projects</h3>
+              <p>
+                Tableros Kanban para organizar issues y pull requests. 
+                Gestión visual del progreso del proyecto.
+              </p>
+              <div class="ecosystem-features">
+                <span class="feature-tag">Kanban</span>
+                <span class="feature-tag">Planning</span>
+                <span class="feature-tag">Tracking</span>
+              </div>
+            </div>
+
+            <!-- GitHub Pages -->
+            <div class="ecosystem-card">
+              <div class="ecosystem-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3>GitHub Pages</h3>
+              <p>
+                Hosting gratuito para sitios web estáticos. 
+                Convierte tu repositorio en una página web pública.
+              </p>
+              <div class="ecosystem-features">
+                <span class="feature-tag">Hosting</span>
+                <span class="feature-tag">Static</span>
+                <span class="feature-tag">Gratis</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- GitHub Copilot -->
+          <div class="copilot-section">
+            <div class="copilot-card">
+              <div class="copilot-header">
+                <div class="copilot-icon">
+                  <i class="fas fa-magic"></i>
+                </div>
+                <div class="copilot-info">
+                  <h3>GitHub Copilot</h3>
+                  <p class="copilot-tagline">Tu asistente de programación con IA</p>
+                </div>
+              </div>
+              <div class="copilot-content">
+                <p>
+                  GitHub Copilot es un asistente de código impulsado por inteligencia artificial 
+                  que te ayuda a escribir código más rápido sugiriendo líneas completas o funciones enteras.
+                </p>
+                <div class="copilot-features">
+                  <div class="copilot-feature">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Sugerencias inteligentes</span>
+                  </div>
+                  <div class="copilot-feature">
+                    <i class="fas fa-language"></i>
+                    <span>Múltiples lenguajes</span>
+                  </div>
+                  <div class="copilot-feature">
+                    <i class="fas fa-rocket"></i>
+                    <span>Desarrollo más rápido</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workflows y Conceptos Avanzados -->
+      <section id="workflows" class="theory-section workflows-section">
+        <div class="theory-container">
+          <div class="section-header">
+            <div class="section-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h2 class="section-title">Workflows & Conceptos Avanzados</h2>
+            <p class="section-description">
+              Aprende sobre flujos de trabajo profesionales y cómo manejar situaciones complejas.
+            </p>
+          </div>
+
+          <!-- GitHub Flow -->
+          <div class="workflow-card">
+            <h3>
+              <i class="fas fa-stream"></i>
+              GitHub Flow
+            </h3>
+            <p class="workflow-description">
+              Un flujo de trabajo simple y efectivo usado por equipos de todo el mundo.
+            </p>
+            <div class="github-flow">
+              <div class="flow-step-horizontal">
+                <div class="step-circle">1</div>
+                <div class="step-content">
+                  <h4>Create Branch</h4>
+                  <p>Crear rama para nueva característica</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="flow-step-horizontal">
+                <div class="step-circle">2</div>
+                <div class="step-content">
+                  <h4>Add Commits</h4>
+                  <p>Desarrollar y hacer commits</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="flow-step-horizontal">
+                <div class="step-circle">3</div>
+                <div class="step-content">
+                  <h4>Open PR</h4>
+                  <p>Crear Pull Request</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="flow-step-horizontal">
+                <div class="step-circle">4</div>
+                <div class="step-content">
+                  <h4>Review</h4>
+                  <p>Revisar y discutir cambios</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="flow-step-horizontal">
+                <div class="step-circle">5</div>
+                <div class="step-content">
+                  <h4>Deploy & Test</h4>
+                  <p>Probar en producción</p>
+                </div>
+              </div>
+              <div class="step-connector"></div>
+              <div class="flow-step-horizontal">
+                <div class="step-circle">6</div>
+                <div class="step-content">
+                  <h4>Merge</h4>
+                  <p>Integrar a main</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Merge Conflicts -->
+          <div class="conflicts-section">
+            <h3>
+              <i class="fas fa-exclamation-triangle"></i>
+              Merge Conflicts: ¡No te asustes!
+            </h3>
+            <div class="conflicts-explanation">
+              <div class="conflict-scenario">
+                <h4>¿Qué es un conflicto?</h4>
+                <p>
+                  Ocurre cuando Git no puede automáticamente combinar cambios porque 
+                  dos personas modificaron las mismas líneas de código.
+                </p>
+              </div>
+              <div class="conflict-resolution">
+                <h4>¿Cómo resolverlo?</h4>
+                <div class="resolution-steps">
+                  <div class="resolution-step">
+                    <span class="step-number">1</span>
+                    <span>Git marca las líneas en conflicto</span>
+                  </div>
+                  <div class="resolution-step">
+                    <span class="step-number">2</span>
+                    <span>Tú decides qué código mantener</span>
+                  </div>
+                  <div class="resolution-step">
+                    <span class="step-number">3</span>
+                    <span>Eliminas las marcas de conflicto</span>
+                  </div>
+                  <div class="resolution-step">
+                    <span class="step-number">4</span>
+                    <span>Haces commit de la resolución</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="conflict-example">
+              <h4>Ejemplo de conflicto:</h4>
+              <div class="code-block">
+                <pre><code><<<<<<< HEAD
+console.log("¡Hola Mundo!");
+=======
+console.log("¡Hello World!");
+>>>>>>> feature-branch</code></pre>
+              </div>
+              <p class="conflict-tip">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Tip:</strong> La parte entre HEAD y === es tu versión, 
+                la parte entre === y >>> es la otra versión.
+              </p>
+            </div>
+          </div>
+
+          <!-- Insights y Analytics -->
+          <div class="insights-section">
+            <h3>
+              <i class="fas fa-chart-line"></i>
+              Insights: Analiza tu Proyecto
+            </h3>
+            <div class="insights-grid">
+              <div class="insight-card">
+                <i class="fas fa-code"></i>
+                <h4>Contributors</h4>
+                <p>Ve quién contribuye más al proyecto</p>
+              </div>
+              <div class="insight-card">
+                <i class="fas fa-calendar"></i>
+                <h4>Pulse</h4>
+                <p>Actividad reciente del repositorio</p>
+              </div>
+              <div class="insight-card">
+                <i class="fas fa-network-wired"></i>
+                <h4>Network</h4>
+                <p>Visualiza el árbol de ramas</p>
+              </div>
+              <div class="insight-card">
+                <i class="fas fa-download"></i>
+                <h4>Traffic</h4>
+                <p>Estadísticas de visitas y clones</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security -->
+          <div class="security-section">
+            <h3>
+              <i class="fas fa-shield-alt"></i>
+              Security: Mantén tu Código Seguro
+            </h3>
+            <div class="security-features">
+              <div class="security-feature">
+                <div class="security-icon">
+                  <i class="fas fa-search"></i>
+                </div>
+                <div class="security-content">
+                  <h4>Dependabot</h4>
+                  <p>Detecta vulnerabilidades en dependencias automáticamente</p>
+                </div>
+              </div>
+              <div class="security-feature">
+                <div class="security-icon">
+                  <i class="fas fa-key"></i>
+                </div>
+                <div class="security-content">
+                  <h4>Secret Scanning</h4>
+                  <p>Encuentra contraseñas y tokens expuestos accidentalmente</p>
+                </div>
+              </div>
+              <div class="security-feature">
+                <div class="security-icon">
+                  <i class="fas fa-code"></i>
+                </div>
+                <div class="security-content">
+                  <h4>Code Scanning</h4>
+                  <p>Analiza el código en busca de vulnerabilidades</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wiki -->
+          <div class="wiki-section">
+            <div class="wiki-card">
+              <div class="wiki-header">
+                <i class="fas fa-book"></i>
+                <h3>Wiki: Documentación Colaborativa</h3>
+              </div>
+              <p>
+                Crea documentación completa para tu proyecto. Tutoriales, guías de API, 
+                y cualquier información que tu equipo necesite compartir.
+              </p>
+              <div class="wiki-benefits">
+                <span class="wiki-benefit">
+                  <i class="fas fa-users"></i>
+                  Colaborativa
+                </span>
+                <span class="wiki-benefit">
+                  <i class="fas fa-search"></i>
+                  Buscable
+                </span>
+                <span class="wiki-benefit">
+                  <i class="fas fa-history"></i>
+                  Versionada
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de Recursos -->
+      <section class="resources-section">
+        <div class="theory-container">
+          <h2 class="resources-title">
+            <i class="fas fa-graduation-cap"></i>
+            ¿Listo para practicar?
+          </h2>
+          <p class="resources-description">
+            Ahora que conoces la teoría, ¡es hora de poner en práctica lo aprendido!
+          </p>
+          <div class="resources-grid">
+            <div class="resource-category">
+              <h3><i class="fas fa-book"></i> Documentación Oficial</h3>
+              <div class="resource-links">
+                <a href="https://git-scm.com/doc" target="_blank" class="resource-link">
+                  <i class="fas fa-external-link-alt"></i>
+                  Documentación de Git
+                </a>
+                <a href="https://docs.github.com" target="_blank" class="resource-link">
+                  <i class="fab fa-github"></i>
+                  GitHub Docs
+                </a>
+                <a href="https://docs.github.com/en/codespaces" target="_blank" class="resource-link">
+                  <i class="fas fa-cloud"></i>
+                  GitHub Codespaces
+                </a>
+                <a href="https://docs.github.com/en/copilot" target="_blank" class="resource-link">
+                  <i class="fas fa-robot"></i>
+                  GitHub Copilot
+                </a>
+              </div>
+            </div>
+            
+            <div class="resource-category">
+              <h3><i class="fas fa-graduation-cap"></i> Tutoriales Interactivos</h3>
+              <div class="resource-links">
+                <a href="https://learngitbranching.js.org/?locale=es_ES" target="_blank" class="resource-link">
+                  <i class="fas fa-code-branch"></i>
+                  Learn Git Branching
+                </a>
+                <a href="https://lab.github.com" target="_blank" class="resource-link">
+                  <i class="fas fa-flask"></i>
+                  GitHub Learning Lab
+                </a>
+                <a href="https://skills.github.com" target="_blank" class="resource-link">
+                  <i class="fas fa-star"></i>
+                  GitHub Skills
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="resources-actions">
+            <a href="como-contribuir.html" class="resource-btn primary">
+              <i class="fas fa-rocket"></i>
+              Empezar a Contribuir
+            </a>
+            <a href="../index.html" class="resource-btn secondary">
+              <i class="fas fa-home"></i>
+              Volver al Inicio
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-left">
+              <div class="footer-logo">
+                <div>
+                  <p class="footer-description"><b>Dav082004🚩</b></p>
+                </div>
+              </div>
+              <p class="footer-description">
+                Proyecto colaborativo para aprender Git, GitHub y desarrollo web
+              </p>
+              <div class="footer-partners">
+                <div class="partner-logos">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="partner-link">
+                    <img src="../assets/Github.png" alt="GitHub" class="partner-logo" />
+                  </a>
+                  <span class="partner-separator">×</span>
+                  <a href="https://www.linkedin.com/company/dsc-utp/" target="_blank" rel="noopener noreferrer" class="partner-link">
+                    <img src="../assets/Logo_DSCUTP.png" alt="Developer Student Clubs UTP" class="partner-logo" />
+                  </a>
+                  <span class="partner-separator">×</span>
+                  <a href="https://www.linkedin.com/company/xperience-campus/" target="_blank" rel="noopener noreferrer" class="partner-link">
+                    <img src="../assets/Logo_XperienceCampus.jpg" alt="Xperience Campus" class="partner-logo" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-right">
+              <div class="footer-links">
+                <a href="https://github.com/Dav082004/XperienceCampusWorkshop" target="_blank">
+                  <i class="fab fa-github"></i>
+                  Repositorio
+                </a>
+              </div>
+              <p class="footer-credit">
+                <i class="fas fa-heart" style="color: #ff6b6b"></i>
+                Hecho con amor por la comunidad
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../js/teoria.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

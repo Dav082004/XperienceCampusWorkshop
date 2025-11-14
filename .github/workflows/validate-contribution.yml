@@ -1,0 +1,310 @@
+name: 🤖 Validación y Auto-merge de Contribuciones
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'contributors-data.js'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  validate-and-merge:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.repo.fork == true
+    
+    steps:
+    - name: 🔍 Checkout PR
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 🔄 Checkout main branch
+      run: |
+        git checkout main
+        git pull origin main
+
+    - name: 🌿 Checkout PR branch
+      run: |
+        git checkout ${{ github.event.pull_request.head.sha }}
+
+    - name: 📋 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: 📝 Validate contributors-data.js
+      id: validate
+      run: |
+        echo "🔍 Iniciando validación de contribución..."
+        
+        # Verificar que solo se modificó contributors-data.js
+        CHANGED_FILES=$(git diff --name-only main...HEAD)
+        echo "Archivos modificados: $CHANGED_FILES"
+        
+        if [[ "$CHANGED_FILES" != "contributors-data.js" ]]; then
+          echo "❌ Error: Solo se permite modificar contributors-data.js"
+          echo "Archivos modificados: $CHANGED_FILES"
+          echo "validation_result=failed" >> $GITHUB_OUTPUT
+          echo "error_message=Solo se permite modificar contributors-data.js. Archivos modificados: $CHANGED_FILES" >> $GITHUB_OUTPUT
+          exit 1
+        fi
+        
+        # Validar sintaxis JavaScript
+        echo "🔍 Validando sintaxis JavaScript..."
+        if ! node -c contributors-data.js; then
+          echo "❌ Error de sintaxis JavaScript"
+          echo "validation_result=failed" >> $GITHUB_OUTPUT
+          echo "error_message=Error de sintaxis en contributors-data.js. Por favor revisa la estructura del archivo." >> $GITHUB_OUTPUT
+          exit 1
+        fi
+        
+        # Crear script de validación
+        cat > validate_contribution.js << 'EOF'
+        const fs = require('fs');
+        
+        try {
+          // Leer y evaluar el archivo
+          const fileContent = fs.readFileSync('contributors-data.js', 'utf8');
+          const contributors = eval(fileContent.replace('const contributors = ', '').replace(/;$/, ''));
+          
+          if (!Array.isArray(contributors)) {
+            throw new Error('contributors debe ser un array');
+          }
+          
+          console.log(`📊 Total de contribuidores: ${contributors.length}`);
+          
+          // Obtener solo el último contribuidor (la nueva contribución)
+          const newContributor = contributors[contributors.length - 1];
+          
+          if (!newContributor) {
+            throw new Error('No se encontró ningún contribuidor nuevo');
+          }
+          
+          console.log(`🔍 Validando contribuidor: ${newContributor.nickname || 'Sin nickname'}`);
+          
+          const errors = [];
+          
+          // Validar campos requeridos
+          const requiredFields = ['name', 'nickname', 'github', 'description', 'hobbies'];
+          for (const field of requiredFields) {
+            if (!newContributor[field] || newContributor[field] === '') {
+              errors.push(`❌ Campo requerido faltante: ${field}`);
+            }
+          }
+          
+          // Validar nickname formato
+          if (newContributor.nickname && !/^[a-zA-Z0-9-_]+$/.test(newContributor.nickname)) {
+            errors.push('❌ Nickname solo puede contener letras, números, guiones y guiones bajos');
+          }
+          
+          // Validar URLs
+          if (newContributor.github && !newContributor.github.startsWith('https://github.com/')) {
+            errors.push('❌ URL de GitHub debe comenzar con https://github.com/');
+          }
+          
+          if (newContributor.linkedin && !newContributor.linkedin.match(/^https:\/\/(www\.)?linkedin\.com\/(in|pub)\/[\w-]+\/?$/)) {
+            errors.push('❌ URL de LinkedIn inválida. Formato: https://linkedin.com/in/username');
+          }
+          
+          if (newContributor.instagram && !newContributor.instagram.match(/^https:\/\/(www\.)?instagram\.com\/[\w.-]+\/?$/)) {
+            errors.push('❌ URL de Instagram inválida. Formato: https://instagram.com/username');
+          }
+          
+          // Validar descripción
+          if (newContributor.description && newContributor.description.length > 150) {
+            errors.push(`❌ Descripción muy larga: ${newContributor.description.length} caracteres (máximo 150)`);
+          }
+          
+          // Validar hobbies
+          if (!Array.isArray(newContributor.hobbies)) {
+            errors.push('❌ hobbies debe ser un array');
+          } else if (newContributor.hobbies.length > 4) {
+            errors.push(`❌ Máximo 4 hobbies permitidos, encontrados: ${newContributor.hobbies.length}`);
+          }
+          
+          // Validar duplicados (solo en los contribuidores anteriores)
+          const existingContributors = contributors.slice(0, -1);
+          const duplicateNickname = existingContributors.find(c => c.nickname === newContributor.nickname);
+          if (duplicateNickname) {
+            errors.push(`❌ Nickname '${newContributor.nickname}' ya existe`);
+          }
+          
+          if (errors.length > 0) {
+            console.error('🚨 Errores de validación encontrados:');
+            errors.forEach(error => console.error(error));
+            process.exit(1);
+          }
+          
+          console.log('✅ Validación exitosa!');
+          console.log(`👤 Contribuidor: ${newContributor.name} (@${newContributor.nickname})`);
+          
+        } catch (error) {
+          console.error('❌ Error durante la validación:', error.message);
+          process.exit(1);
+        }
+        EOF
+        
+        # Ejecutar validación
+        if node validate_contribution.js; then
+          echo "validation_result=success" >> $GITHUB_OUTPUT
+        else
+          echo "validation_result=failed" >> $GITHUB_OUTPUT
+          echo "error_message=Falló la validación de datos del contribuidor" >> $GITHUB_OUTPUT
+          exit 1
+        fi
+
+    - name: 🔄 Auto-resolve conflicts and merge
+      if: steps.validate.outputs.validation_result == 'success'
+      run: |
+        echo "🚀 Iniciando proceso de auto-merge..."
+        
+        # Configurar git
+        git config user.name "XperienceCampus Bot"
+        git config user.email "action@github.com"
+        
+        # Ir a main y hacer pull para obtener últimos cambios
+        git checkout main
+        git pull origin main
+        
+        # Crear una rama temporal para el merge
+        TEMP_BRANCH="auto-merge-${{ github.event.pull_request.number }}-$(date +%s)"
+        git checkout -b $TEMP_BRANCH
+        
+        # Intentar hacer merge de la PR
+        if git merge ${{ github.event.pull_request.head.sha }} --no-edit; then
+          echo "✅ Merge exitoso sin conflictos"
+        else
+          echo "🔧 Detectado conflicto, resolviendo automáticamente..."
+          
+          # Resolver conflicto en contributors-data.js
+          if [[ -f contributors-data.js ]]; then
+            # Obtener la contribución de la PR
+            git checkout ${{ github.event.pull_request.head.sha }} -- contributors-data.js
+            
+            # Leer la nueva contribución
+            NEW_CONTRIBUTOR=$(node -e "
+              const fs = require('fs');
+              const content = fs.readFileSync('contributors-data.js', 'utf8');
+              const contributors = eval(content.replace('const contributors = ', '').replace(/;$/, ''));
+              const newContrib = contributors[contributors.length - 1];
+              console.log(JSON.stringify(newContrib, null, 2));
+            ")
+            
+            # Obtener la versión actual de main
+            git checkout main -- contributors-data.js
+            
+            # Agregar la nueva contribución al final
+            node -e "
+              const fs = require('fs');
+              let content = fs.readFileSync('contributors-data.js', 'utf8');
+              const newContrib = $NEW_CONTRIBUTOR;
+              
+              // Remover el ]; final
+              content = content.replace(/\];?\s*$/, '');
+              
+              // Agregar la nueva contribución
+              const contributorStr = ',\\n  ' + JSON.stringify(newContrib, null, 2).replace(/\\n/g, '\\n  ');
+              content += contributorStr + '\\n];';
+              
+              fs.writeFileSync('contributors-data.js', content);
+            "
+            
+            # Validar que la sintaxis sigue siendo correcta
+            if node -c contributors-data.js; then
+              git add contributors-data.js
+              git commit -m "🤖 Auto-resolve: Add contributor ${{ github.event.pull_request.user.login }}"
+              echo "✅ Conflicto resuelto automáticamente"
+            else
+              echo "❌ Error al resolver conflicto automáticamente"
+              exit 1
+            fi
+          fi
+        fi
+        
+        # Push de la rama temporal
+        git push origin $TEMP_BRANCH
+        
+        # Merge a main
+        git checkout main
+        git merge $TEMP_BRANCH --no-edit
+        git push origin main
+        
+        # Limpiar rama temporal
+        git push origin --delete $TEMP_BRANCH
+        
+        echo "🎉 Contribución mergeada exitosamente!"
+
+    - name: ✅ Success Comment
+      if: steps.validate.outputs.validation_result == 'success'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { owner, repo, number } = context.issue;
+          await github.rest.issues.createComment({
+            owner,
+            repo,
+            issue_number: number,
+            body: `🎉 **¡Contribución exitosa!**
+            
+            ✅ **Validaciones pasadas:**
+            - 📝 Sintaxis JavaScript correcta
+            - 🏷️ Todos los campos requeridos presentes
+            - 🔗 URLs válidas
+            - 🎯 Límite de hobbies respetado (≤4)
+            - 📏 Descripción dentro del límite (≤150 caracteres)
+            - 🚫 Nickname único
+            - 🔤 Formato de nickname válido
+            
+            🚀 **Tu perfil ha sido agregado automáticamente y estará visible en la página web en unos minutos.**
+            
+            ¡Gracias por contribuir al proyecto! 🌟
+            
+            ---
+            *🤖 Mensaje automático del sistema de validación*`
+          });
+          
+          // Cerrar el PR como merged
+          await github.rest.pulls.update({
+            owner,
+            repo,
+            pull_number: number,
+            state: 'closed'
+          });
+
+    - name: ❌ Failure Comment
+      if: failure()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { owner, repo, number } = context.issue;
+          const errorMessage = process.env.ERROR_MESSAGE || 'Error desconocido durante la validación';
+          
+          await github.rest.issues.createComment({
+            owner,
+            repo,
+            issue_number: number,
+            body: `🚨 **Validación fallida**
+            
+            **Error encontrado:**
+            ${errorMessage}
+            
+            📋 **Para corregir:**
+            1. Revisa el error específico arriba
+            2. Haz los cambios necesarios en tu rama
+            3. Haz commit y push - el PR se actualizará automáticamente
+            4. La validación se ejecutará nuevamente
+            
+            📚 **Recursos de ayuda:**
+            - [Guía completa con Codespace](https://github.com/${owner}/${repo}/blob/main/pages/como-contribuir-codespace.html)
+            - [Plantilla de contribución](https://github.com/${owner}/${repo}#-plantilla-de-datos)
+            - [Errores comunes y soluciones](https://github.com/${owner}/${repo}#-errores-frecuentes-y-soluciones)
+            
+            ---
+            *🤖 Mensaje automático del sistema de validación*`
+          });
+      env:
+        ERROR_MESSAGE: ${{ steps.validate.outputs.error_message }}

@@ -59,8 +59,8 @@
   /* Espaciado */
   --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
+  --spacing-md: 0.5rem;
+  --spacing-lg: 1.2rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
@@ -87,11 +87,18 @@ html {
 
 body {
   font-family: var(--font-family);
-  line-height: 1.6;
+  line-height: var(--line-height);
   color: var(--text-primary);
-  background: var(--white);
-  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: var(--github-bg);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /* =====================================================
@@ -252,6 +259,22 @@ code {
   align-items: center;
   justify-content: space-between;
   height: 80px;
+}
+
+/* Header Title */
+.header-title {
+  display: flex;
+  align-items: center;
+}
+
+.header-title h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
 }
 
 /* Header Logos */
@@ -561,84 +584,203 @@ code {
   visibility: visible;
 }
 
-/* =====================================================
-   FOOTER
-   ===================================================== */
+/* ========================================
+   ADDITIONAL ANIMATIONS FOR THEORY PAGE
+======================================== */
+
+.section-highlight {
+  position: relative;
+  animation: highlightPulse 2s ease-in-out;
+}
+
+@keyframes highlightPulse {
+  0%, 100% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: rgba(99, 102, 241, 0.1);
+  }
+}
+
+.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: all 0.6s ease-out;
+}
+
+/* Scroll indicator para páginas largas */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  z-index: 9999;
+  transition: width 0.3s ease;
+}
+
+/* Mejoras para accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible para mejor navegación por teclado */
+.command-card:focus-visible,
+.ecosystem-card:focus-visible,
+.hero-nav-link:focus-visible,
+.insight-card:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   FOOTER STYLES
+======================================== */
+
 .footer {
   background: var(--github-dark);
-  color: var(--white);
+  color: white;
+  padding: var(--spacing-2xl) 0 var(--spacing-lg);
   margin-top: auto;
+  position: relative;
 }
 
 .footer-container {
-  max-width: var(--container-max-width);
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-3xl) var(--container-padding);
+  padding: 0 var(--container-padding);
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-3xl);
-  align-items: start;
+  grid-template-columns: 1fr auto;
+  gap: var(--spacing-2xl);
+  align-items: center;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-sm);
 }
 
-.footer-logo .campus-experts-logo.small {
-  transform: scale(0.8);
-  transform-origin: left center;
-}
-
-.footer-logo .github-text,
-.footer-logo .campus-text {
-  color: var(--white);
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
 }
 
 .footer-description {
-  color: #8b949e;
   margin: 0;
+  color: rgba(255, 255, 255, 0.8);
   font-size: var(--text-sm);
   line-height: 1.5;
+}
+
+.footer-description:first-child {
+  color: white;
+  font-size: var(--text-md);
+  font-weight: 600;
 }
 
 .footer-right {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
   align-items: flex-end;
+  gap: var(--spacing-md);
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   align-items: flex-end;
 }
 
 .footer-links a {
-  color: var(--white);
-  text-decoration: none;
-  font-size: var(--text-sm);
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: var(--text-sm);
   transition: var(--transition);
 }
 
 .footer-links a:hover {
-  color: var(--github-red);
-  text-decoration: none;
+  color: white;
+  transform: translateX(-2px);
+}
+
+.footer-links i {
+  font-size: var(--text-md);
 }
 
 .footer-credit {
-  color: #8b949e;
-  font-size: var(--text-xs);
   margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--text-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.footer-credit i {
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Footer Partners */
+.footer-partners {
+  margin: var(--spacing-lg) 0;
+}
+
+.partner-logos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.partner-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.partner-link:hover {
+  transform: scale(1.05);
+}
+
+.partner-logo {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+}
+
+.partner-separator {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  margin: 0 0.5rem;
 }
 
 /* =====================================================
@@ -767,17 +909,31 @@ code {
     font-size: 18px;
   }
 
+  /* Footer responsive */
   .footer-content {
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .footer-left {
+    align-items: center;
+    text-align: center;
   }
 
   .footer-right {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .footer-links {
-    align-items: flex-start;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a:hover {
+    transform: translateY(-2px);
   }
 
   h1 {

@@ -1,0 +1,1561 @@
+/* ========================================
+   THEORY PAGE STYLES
+======================================== */
+
+:root {
+  /* Colores minimalistas y suaves */
+  --theory-primary: #4f46e5;
+  --theory-secondary: #7c3aed;
+  --theory-accent: #0ea5e9;
+  --theory-success: #059669;
+  --theory-warning: #d97706;
+  --theory-danger: #dc2626;
+  --theory-gradient: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  --theory-soft-gradient: linear-gradient(135deg, #fefbff, #f3f4f6);
+  --theory-dark: #1f2937;
+  --theory-light: #fefefe;
+  --theory-border: #e5e7eb;
+  --theory-soft-border: #f3f4f6;
+  --theory-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --theory-shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --theory-text-muted: #6b7280;
+  --theory-text-soft: #9ca3af;
+}
+
+/* ========================================
+   MAIN CONTENT LAYOUT
+======================================== */
+
+.main-content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.theory-hero {
+  background: var(--theory-soft-gradient);
+  color: var(--theory-dark);
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--theory-soft-border);
+}
+
+.theory-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(79,70,229,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+  opacity: 0.6;
+}
+
+.theory-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--theory-primary), var(--theory-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--theory-text-muted);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-navigation {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  background: white;
+  border-radius: 12px;
+  color: var(--theory-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid var(--theory-border);
+  box-shadow: var(--theory-shadow);
+}
+
+.hero-nav-link:hover {
+  background: var(--theory-light);
+  transform: translateY(-1px);
+  box-shadow: var(--theory-shadow-lg);
+  border-color: var(--theory-primary);
+}
+
+.hero-nav-link i {
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   THEORY SECTIONS
+======================================== */
+
+.theory-section {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.theory-section:nth-child(even) {
+  background: var(--theory-light);
+}
+
+.theory-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--theory-primary), var(--theory-secondary));
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: var(--theory-shadow);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.section-description {
+  font-size: 1.125rem;
+  color: var(--theory-text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ========================================
+   CONCEPT CARDS
+======================================== */
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.concept-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--theory-shadow-lg);
+  border: 1px solid var(--theory-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.concept-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--theory-gradient);
+}
+
+.concept-card.animated {
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.concept-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.concept-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.concept-icon {
+  font-size: 2rem;
+  color: var(--theory-primary);
+}
+
+.concept-header h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin: 0;
+}
+
+.concept-content {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ========================================
+   BENEFIT LIST
+======================================== */
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--theory-light);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  background: #e2e8f0;
+  transform: translateX(5px);
+}
+
+.benefit-item i {
+  color: var(--theory-success);
+  font-size: 1.2rem;
+  width: 20px;
+  text-align: center;
+}
+
+.benefit-item span {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* ========================================
+   GIT STATES VISUALIZATION
+======================================== */
+
+.git-states {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.state-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.state-item.working {
+  background: linear-gradient(135deg, #fef3c7, #fbbf24);
+}
+
+.state-item.staging {
+  background: linear-gradient(135deg, #dbeafe, #3b82f6);
+  color: white;
+}
+
+.state-item.committed {
+  background: linear-gradient(135deg, #d1fae5, #10b981);
+  color: white;
+}
+
+.state-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.state-info h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.state-info p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+.state-arrow {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--theory-primary);
+  margin: 0.5rem 0;
+}
+
+/* ========================================
+   COMMANDS SECTION
+======================================== */
+
+.commands-section {
+  margin: 5rem 0;
+}
+
+.commands-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--theory-dark);
+  margin-bottom: 3rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.commands-title i {
+  color: var(--theory-primary);
+}
+
+.commands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.command-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--theory-shadow);
+  border: 1px solid var(--theory-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.command-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--theory-shadow-lg);
+}
+
+.command-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.command-header code {
+  background: var(--theory-dark);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.command-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.command-type.setup {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.command-type.info {
+  background: #e0f2fe;
+  color: #0277bd;
+}
+
+.command-type.basic {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.command-type.sync {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.command-type.branch {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.command-type.advanced {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+.command-card p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.command-example {
+  background: var(--theory-light);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--theory-primary);
+}
+
+.example-label {
+  font-weight: 600;
+  color: var(--theory-primary);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.command-example code {
+  background: none;
+  color: var(--theory-dark);
+  padding: 0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.95rem;
+  display: block;
+  line-height: 1.4;
+}
+
+/* ========================================
+   GITFLOW SECTION
+======================================== */
+
+.gitflow-section {
+  margin: 5rem 0;
+  padding: 3rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--theory-shadow-lg);
+}
+
+.gitflow-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--theory-dark);
+  margin-bottom: 3rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.gitflow-title i {
+  color: var(--theory-secondary);
+}
+
+.gitflow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.flow-step {
+  text-align: center;
+  max-width: 200px;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--theory-gradient);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.step-content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.branch-visual {
+  height: 8px;
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: 120px;
+}
+
+.main-branch {
+  background: var(--theory-primary);
+}
+
+.feature-branch {
+  background: var(--theory-success);
+}
+
+.pr-branch {
+  background: var(--theory-warning);
+}
+
+.merged-branch {
+  background: var(--theory-secondary);
+}
+
+.flow-arrow {
+  font-size: 1.5rem;
+  color: var(--theory-primary);
+  font-weight: bold;
+}
+
+/* ========================================
+   GITHUB ECOSYSTEM
+======================================== */
+
+.github-section {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.ecosystem-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--theory-shadow);
+  border: 1px solid var(--theory-border);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ecosystem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--theory-gradient);
+}
+
+.ecosystem-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ecosystem-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: var(--theory-gradient);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: white;
+}
+
+.ecosystem-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 1rem;
+}
+
+.ecosystem-card p {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.ecosystem-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.feature-tag {
+  background: var(--theory-light);
+  color: var(--theory-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ========================================
+   COPILOT SECTION
+======================================== */
+
+.copilot-section {
+  margin: 4rem 0;
+}
+
+.copilot-card {
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border-radius: 20px;
+  padding: 3rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.copilot-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="copilot-grid" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23copilot-grid)"/></svg>');
+  opacity: 0.3;
+}
+
+.copilot-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.copilot-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  border-radius: 50%;
+  font-size: 2rem;
+}
+
+.copilot-info h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.copilot-tagline {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.copilot-content {
+  position: relative;
+  z-index: 1;
+}
+
+.copilot-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.copilot-features {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.copilot-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+}
+
+.copilot-feature i {
+  color: #fbbf24;
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   WORKFLOWS SECTION
+======================================== */
+
+.workflows-section {
+  background: white;
+}
+
+.workflow-card {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: var(--theory-shadow-lg);
+  margin-bottom: 4rem;
+  border: 1px solid var(--theory-border);
+}
+
+.workflow-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--theory-dark);
+  margin-bottom: 1rem;
+}
+
+.workflow-card h3 i {
+  color: var(--theory-primary);
+}
+
+.workflow-description {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.github-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.flow-step-horizontal {
+  text-align: center;
+  max-width: 150px;
+  min-width: 120px;
+}
+
+.step-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: var(--theory-gradient);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.flow-step-horizontal h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 0.5rem;
+}
+
+.flow-step-horizontal p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.step-connector {
+  width: 30px;
+  height: 2px;
+  background: var(--theory-primary);
+  position: relative;
+}
+
+.step-connector::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: -3px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid var(--theory-primary);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+/* ========================================
+   CONFLICTS SECTION
+======================================== */
+
+.conflicts-section {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border-radius: 20px;
+  padding: 3rem;
+  margin: 4rem 0;
+  border-left: 5px solid var(--theory-danger);
+}
+
+.conflicts-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--theory-danger);
+  margin-bottom: 2rem;
+}
+
+.conflicts-explanation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.conflict-scenario h4,
+.conflict-resolution h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 1rem;
+}
+
+.conflict-scenario p,
+.conflict-resolution p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.resolution-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.resolution-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resolution-step .step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: var(--theory-danger);
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.conflict-example {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--theory-shadow);
+}
+
+.conflict-example h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 1.5rem;
+}
+
+.code-block {
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+  color: #e2e8f0;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.code-block code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.conflict-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fef3c7;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid #f59e0b;
+}
+
+.conflict-tip i {
+  color: #f59e0b;
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.conflict-tip strong {
+  color: var(--theory-dark);
+}
+
+/* ========================================
+   INSIGHTS SECTION
+======================================== */
+
+.insights-section {
+  margin: 4rem 0;
+}
+
+.insights-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--theory-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.insights-section h3 i {
+  color: var(--theory-accent);
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.insight-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--theory-shadow);
+  border: 1px solid var(--theory-border);
+  transition: all 0.3s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--theory-shadow-lg);
+}
+
+.insight-card i {
+  font-size: 2.5rem;
+  color: var(--theory-accent);
+  margin-bottom: 1rem;
+}
+
+.insight-card h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 0.5rem;
+}
+
+.insight-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   SECURITY SECTION
+======================================== */
+
+.security-section {
+  margin: 4rem 0;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 20px;
+  padding: 3rem;
+  border-left: 5px solid var(--theory-success);
+}
+
+.security-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--theory-success);
+  margin-bottom: 2rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.security-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.security-feature {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--theory-shadow);
+  transition: all 0.3s ease;
+}
+
+.security-feature:hover {
+  transform: translateX(10px);
+  box-shadow: var(--theory-shadow-lg);
+}
+
+.security-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: var(--theory-success);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.security-content h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 0.5rem;
+}
+
+.security-content p {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ========================================
+   WIKI SECTION
+======================================== */
+
+.wiki-section {
+  margin: 4rem 0;
+}
+
+.wiki-card {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  border-radius: 20px;
+  padding: 3rem;
+  border-left: 5px solid var(--theory-secondary);
+}
+
+.wiki-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.wiki-header i {
+  font-size: 2.5rem;
+  color: var(--theory-secondary);
+}
+
+.wiki-header h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--theory-dark);
+  margin: 0;
+}
+
+.wiki-card p {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.wiki-benefits {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.wiki-benefit {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 500;
+  color: var(--theory-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-benefit i {
+  color: var(--theory-secondary);
+  font-size: 1.1rem;
+}
+
+/* ========================================
+   ANALOGÍAS Y MEJORAS DE UX
+======================================== */
+
+.analogy-box {
+  background: linear-gradient(135deg, #fef7ff, #f3e8ff);
+  border: 1px solid #e9d5ff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.analogy-box::before {
+  content: '💡';
+  position: absolute;
+  top: -10px;
+  left: 1rem;
+  background: white;
+  padding: 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.analogy-text {
+  margin: 0;
+  color: var(--theory-dark);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.analogy-text strong {
+  color: var(--theory-primary);
+}
+
+.analogy-mini {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-left: 3px solid var(--theory-accent);
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.9rem;
+  color: var(--theory-dark);
+  font-style: italic;
+}
+
+.analogy-mini strong {
+  color: var(--theory-accent);
+  font-weight: 600;
+}
+
+/* ========================================
+   RESOURCES SECTION
+======================================== */
+
+.resources-section {
+  background: var(--theory-soft-gradient);
+  color: var(--theory-dark);
+  padding: 4rem 0;
+  text-align: center;
+  border-top: 1px solid var(--theory-soft-border);
+}
+
+.resources-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--theory-dark);
+}
+
+.resources-title i {
+  color: var(--theory-primary);
+}
+
+.resources-description {
+  font-size: 1.125rem;
+  color: var(--theory-text-muted);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Resources Grid */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resource-category {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--theory-shadow);
+  border: 1px solid var(--theory-border);
+  text-align: left;
+}
+
+.resource-category h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--theory-dark);
+  margin-bottom: 1.5rem;
+}
+
+.resource-category h3 i {
+  color: var(--theory-primary);
+  font-size: 1.1rem;
+}
+
+.resource-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.resource-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--theory-light);
+  border: 1px solid var(--theory-border);
+  border-radius: 8px;
+  color: var(--theory-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.resource-link:hover {
+  background: var(--theory-primary);
+  color: white;
+  transform: translateX(4px);
+  box-shadow: var(--theory-shadow);
+}
+
+.resource-link i {
+  font-size: 0.9rem;
+  width: 16px;
+  text-align: center;
+}
+
+.resources-actions {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.resource-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.resource-btn.primary {
+  background: var(--theory-primary);
+  color: white;
+  border: 1px solid var(--theory-primary);
+}
+
+.resource-btn.primary:hover {
+  background: var(--theory-secondary);
+  border-color: var(--theory-secondary);
+  transform: translateY(-1px);
+  box-shadow: var(--theory-shadow-lg);
+}
+
+.resource-btn.secondary {
+  background: white;
+  color: var(--theory-dark);
+  border: 1px solid var(--theory-border);
+}
+
+.resource-btn.secondary:hover {
+  background: var(--theory-light);
+  border-color: var(--theory-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--theory-shadow);
+}
+
+.resource-btn i {
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Animación de entrada para las tarjetas */
+.concept-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.concept-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.ecosystem-card {
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.ecosystem-card:nth-child(1) { animation-delay: 0.1s; }
+.ecosystem-card:nth-child(2) { animation-delay: 0.2s; }
+.ecosystem-card:nth-child(3) { animation-delay: 0.3s; }
+.ecosystem-card:nth-child(4) { animation-delay: 0.4s; }
+.ecosystem-card:nth-child(5) { animation-delay: 0.5s; }
+.ecosystem-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .hero-nav-link {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .concept-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .commands-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gitflow-diagram {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .flow-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .github-flow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .step-connector {
+    width: 2px;
+    height: 30px;
+    transform: rotate(90deg);
+  }
+  
+  .step-connector::after {
+    right: -3px;
+    top: 20px;
+    transform: rotate(90deg);
+  }
+  
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .conflicts-explanation {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .insights-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .security-feature {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .wiki-benefits {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .resources-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .resource-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .copilot-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .copilot-features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -37,7 +37,7 @@
    SECCIÓN DE PASOS
    ===================================================== */
 .contribute-section {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-2m) 0;
   background: var(--white);
 }
 
@@ -472,10 +472,6 @@
   color: var(--accent-red);
 }
 
-.example-item .code-example {
-  margin: 0;
-  border-radius: 0;
-}
 
 .error-list {
   padding: var(--spacing-lg);
@@ -606,5 +602,230 @@
 
   .error-list {
     padding: var(--spacing-md);
+  }
+}
+
+/* =====================================================
+   ESTILOS MINIMALISTAS PARA SELECCIÓN DE MÉTODO
+   ===================================================== */
+
+/* Hero minimalista */
+.minimal-hero {
+  padding: 80px 0 60px 0;
+  background: var(--white);
+  text-align: center;
+}
+
+.minimal-hero-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.minimal-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.minimal-subtitle {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* Sección de métodos minimalista */
+.minimal-methods {
+  padding: 60px 0 80px 0;
+  background: #fafbfc;
+}
+
+.minimal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.minimal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+}
+
+.minimal-card {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid #e1e8ed;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.minimal-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: #d0d7de;
+}
+
+.minimal-card.recommended {
+  border-color: #0969da;
+  position: relative;
+}
+
+.minimal-card.recommended::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0969da, #218bff);
+  border-radius: 16px 16px 0 0;
+}
+
+.minimal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.minimal-header i {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0969da, #218bff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.minimal-info h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: var(--text-primary);
+}
+
+.minimal-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.minimal-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 15px;
+}
+
+.minimal-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.minimal-features span {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.minimal-btn {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.minimal-btn.primary {
+  background: linear-gradient(135deg, #0969da, #218bff);
+  color: white;
+}
+
+.minimal-btn.primary:hover {
+  background: linear-gradient(135deg, #0550ae, #1f6feb);
+  transform: translateY(-1px);
+}
+
+.minimal-btn.secondary {
+  background: var(--white);
+  color: var(--text-primary);
+  border: 1px solid #d0d7de;
+}
+
+.minimal-btn.secondary:hover {
+  background: #f6f8fa;
+  border-color: #afb8c1;
+  transform: translateY(-1px);
+}
+
+/* Responsive para diseño minimalista */
+@media (max-width: 768px) {
+  .minimal-hero {
+    padding: 60px 0 40px 0;
+  }
+
+  .minimal-title {
+    font-size: 32px;
+  }
+
+  .minimal-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .minimal-methods {
+    padding: 40px 0 60px 0;
+  }
+
+  .minimal-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .minimal-card {
+    padding: 24px;
+  }
+
+  .minimal-header {
+    gap: 12px;
+  }
+
+  .minimal-header i {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .minimal-info h3 {
+    font-size: 20px;
+  }
+
+  .minimal-desc {
+    font-size: 14px;
+  }
+
+  .minimal-btn {
+    padding: 12px 16px;
+    font-size: 14px;
   }
 }

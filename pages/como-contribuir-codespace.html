@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repositorio Colaborativo</title>
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/como-contribuir.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <div class="header-title">
+          <h1>Git&GitHubWorkshop</h1>
+        </div>
+        <nav class="header-nav" id="headerNav">
+          <a href="../index.html" class="nav-link">Inicio</a>
+          <a href="../index.html#participantes" class="nav-link">Colaboradores</a>
+          <a href="teoria.html" class="nav-link">Teoría</a>
+          <a href="como-contribuir.html" class="nav-link active"
+            >Cómo Contribuir</a
+          >
+        </nav>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Overlay para menú móvil -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Instrucciones para contribuir -->
+      <section class="contribute-section">
+        <div class="contribute-container">
+          <div class="steps-container">
+            <!-- Paso 1: Acceder al Repositorio -->
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>
+                  <i class="fas fa-globe"></i> Accede y Forkea el Repositorio
+                </h3>
+                <p>
+                  Ve al repositorio oficial en GitHub y familiarízate con el
+                  proyecto. Revisa el README y la estructura del proyecto. Luego
+                  dale click a Fork y crear un fork del repositorio.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso1.png"
+                    alt="Paso 1: Acceder al repositorio"
+                    class="guide-image" />
+                </div>
+                <div class="code-example">
+                  <pre><code># URL del repositorio
+https://github.com/Dav082004/XperienceCampusWorkshop</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 2: Fork del Repositorio -->
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>
+                  <i class="fas fa-code-branch"></i> Haz Fork del Repositorio
+                </h3>
+                <p>
+                  Haz clic en el botón "Fork" en la esquina superior derecha del
+                  repositorio. Esto creará una copia del proyecto en tu cuenta
+                  de GitHub.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso2.png"
+                    alt="Paso 2: Fork del repositorio"
+                    class="guide-image" />
+                </div>
+                <div class="info-box">
+                  <p>
+                    <i class="fas fa-info-circle"></i> El fork te permite
+                    trabajar en tu propia copia sin afectar el original.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 3: Verificar Fork -->
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3><i class="fas fa-check-circle"></i> Verifica tu Fork</h3>
+                <p>
+                  Verificar que se forkeo correctamente y está en tu perfil. Debe decir
+                  tu_perfil / XperienceCampusWorkshop y mostrar que fue forkeado del repositorio principal.
+                  Esto te permitirá realizar cambios sin afectar el repositorio original.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso3.png"
+                    alt="Paso 3: Verificar fork"
+                    class="guide-image" />
+                </div>
+                <div class="info-box">
+                  <p>
+                    <i class="fas fa-info-circle"></i> El repositorio debe mostrar "forked from Dav082004/XperienceCampusWorkshop"
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 4: Crear Codespace -->
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3><i class="fas fa-cloud"></i> Crear Codespace</h3>
+                <p>
+                  Haz clic en el botón "Code" verde y luego ve a "Codespaces" y dale clic a 
+                  "Create codespace on main". Esto te dará un editor de código remoto que ya está 
+                  preconfigurado con LiveServer, Image Preview y Git.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso4.png"
+                    alt="Paso 4: Crear Codespace"
+                    class="guide-image" />
+                </div>
+                <div class="info-box success">
+                  <p>
+                    <i class="fas fa-rocket"></i> El Codespace incluye todas las extensiones necesarias preinstaladas
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 5: Verificar Estado Inicial -->
+            <div class="step">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h3><i class="fas fa-terminal"></i> Verificar Estado Inicial</h3>
+                <p>
+                  Una vez dentro del Codespace, verifica que estás en la rama main de tu repositorio forkeado 
+                  usando <code>git status</code>. También puedes usar <code>git branch --all</code> para ver 
+                  todas las ramas disponibles. Solo debería aparecer la rama main.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso5.png"
+                    alt="Paso 5: Verificar estado inicial"
+                    class="guide-image" />
+                </div>
+                <div class="code-example">
+                  <pre><code># Verificar estado actual
+git status
+
+# Ver todas las ramas
+git branch --all</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 6: Crear Nueva Rama -->
+            <div class="step">
+              <div class="step-number">6</div>
+              <div class="step-content">
+                <h3><i class="fas fa-code-branch"></i> Crear Nueva Rama</h3>
+                <p>
+                  Para seguir el GitFlow correctamente, crea una nueva rama específica para tu contribución. 
+                  Usa <code>git checkout -b feat/new-profilexde</code> (reemplaza con tu nombre). 
+                  Verás que donde decía (main) ahora aparece el nombre de tu nueva rama.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso6.png"
+                    alt="Paso 6: Crear nueva rama"
+                    class="guide-image" />
+                </div>
+                <div class="code-example">
+                  <pre><code># Crear y cambiar a nueva rama
+git checkout -b feat/new-tu-nickname
+
+# Verificar cambio de rama
+git branch</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 7: Editar Archivo -->
+            <div class="step">
+              <div class="step-number">7</div>
+              <div class="step-content">
+                <h3><i class="fas fa-edit"></i> Editar contributors-data.js</h3>
+                <p>
+                  Ahora que estás en una nueva rama, edita el archivo <code>contributors-data.js</code>. 
+                  Agrega tu información: nombre, nickname, GitHub, LinkedIn, Instagram (opcionales), 
+                  imagen (puedes usar tu avatar de GitHub agregando .png), descripción y hasta 4 hobbies.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso7.png"
+                    alt="Paso 7: Editar archivo"
+                    class="guide-image" />
+                </div>
+                <div class="code-example">
+                  <pre><code># Después de editar, verificar cambios
+git status
+
+# Deberías ver contributors-data.js modificado</code></pre>
+
+<div class="code-example">
+  <pre><code>{
+  name: "Tu Nombre",
+  nickname: "TuUsuario",
+  github: "https://github.com/TuUsuario",
+  linkedin: "https://www.linkedin.com/in/tu-linkedin", // Opcional
+  instagram: "https://www.instagram.com/tu-instagram/", // Opcional
+  image: "https://github.com/TuUsuario.png", // Opcional
+  description: "Breve descripción sobre ti.",
+  hobbies: ["Hobby1", "Hobby2", "Hobby3", "Hobby4"]
+},
+  </code></pre>
+</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 8: Preparar Commit -->
+            <div class="step">
+              <div class="step-number">8</div>
+              <div class="step-content">
+                <h3><i class="fas fa-plus"></i> Preparar y Hacer Commit</h3>
+                <p>
+                  Usa <code>git add .</code> para preparar todos los cambios para el commit. 
+                  Luego realiza el commit con un mensaje descriptivo usando 
+                  <code>git commit -m "mensaje del commit"</code>. 
+                  Después de esto, <code>git status</code> mostrará que la rama está limpia.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso8.png"
+                    alt="Paso 8: Preparar commit"
+                    class="guide-image" />
+                </div>
+                <div class="code-example">
+                  <pre><code># Preparar cambios
+git add .
+
+# Hacer commit
+git commit -m "feat: add new profile for [tu-nickname]"
+
+# Verificar estado
+git status</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 9: Push a GitHub -->
+            <div class="step">
+              <div class="step-number">9</div>
+              <div class="step-content">
+                <h3><i class="fas fa-upload"></i> Subir Cambios a GitHub</h3>
+                <p>
+                  Ahora que tu commit está listo, sube los cambios a tu repositorio forkeado usando 
+                  <code>git push origin feat/new-profilexde</code> (reemplaza con el nombre de tu rama). 
+                  Esto subirá tu nueva rama con todos los cambios a GitHub.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso9.png"
+                    alt="Paso 9: Push a GitHub"
+                    class="guide-image" />
+                </div>
+                <div class="code-example">
+                  <pre><code># Subir rama al repositorio forkeado
+git push origin feat/new-tu-nickname</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 10: Comparar y Pull Request -->
+            <div class="step">
+              <div class="step-number">10</div>
+              <div class="step-content">
+                <h3><i class="fas fa-code-branch"></i> Comparar y Pull Request</h3>
+                <p>
+                  Verifica que ahora tienes 2 ramas en tu repositorio. GitHub te permitirá 
+                  "Comparar y hacer Pull Request". Puedes ver que el último autor del cambio 
+                  fuiste tú. Haz clic en el botón verde "Compare & pull request".
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso10.png"
+                    alt="Paso 10: Comparar y PR"
+                    class="guide-image" />
+                </div>
+                <div class="info-box">
+                  <p>
+                    <i class="fas fa-info-circle"></i> GitHub detecta automáticamente tu nueva rama y te permite crear el PR
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 11: Crear Pull Request -->
+            <div class="step">
+              <div class="step-number">11</div>
+              <div class="step-content">
+                <h3><i class="fas fa-paper-plane"></i> Crear Pull Request</h3>
+                <p>
+                  Verifica que el Pull Request se hará entre el repositorio principal y la rama main, 
+                  mergeando los cambios de tu repo forkeado y tu nueva rama. Agrega un mensaje 
+                  descriptivo explicando tus cambios y haz clic en "Create Pull Request".
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso11.png"
+                    alt="Paso 11: Crear PR"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 11.1: Ver Cambios en Código -->
+            <div class="step">
+              <div class="step-number">11.1</div>
+              <div class="step-content">
+                <h3><i class="fas fa-code"></i> Revisar Cambios en Código</h3>
+                <p>
+                  Puedes revisar todos los cambios realizados en código antes de finalizar 
+                  el Pull Request. Esto te permite verificar que todo esté correcto.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso11.1.png"
+                    alt="Paso 11.1: Ver cambios en código"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 12: PR Abierta -->
+            <div class="step">
+              <div class="step-number">12</div>
+              <div class="step-content">
+                <h3><i class="fas fa-eye"></i> Pull Request Abierta</h3>
+                <p>
+                  Tu PR está ahora abierta para revisión. Las personas con roles suficientes 
+                  pueden comentar, rechazar o aprobar la PR.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso12.png"
+                    alt="Paso 12: PR abierta"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 13: Aprobación y Merge -->
+            <div class="step">
+              <div class="step-number">13</div>
+              <div class="step-content">
+                <h3><i class="fas fa-check-circle"></i> Aprobación y Merge</h3>
+                <p>
+                  Cuando no hay conflictos y todo está correcto, un revisor puede aprobar 
+                  la PR y hacer el merge. Tus cambios serán integrados al repositorio principal.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso13.png"
+                    alt="Paso 13: Aprobación y merge"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 14: Historial de Commits -->
+            <div class="step">
+              <div class="step-number">14</div>
+              <div class="step-content">
+                <h3><i class="fas fa-history"></i> Historial de Commits</h3>
+                <p>
+                  Puedes ver el historial de commits donde aparece tu commit junto con 
+                  el commit del auditor que aprobó los cambios. Tu contribución forma 
+                  parte oficial del proyecto.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso14.png"
+                    alt="Paso 14: Historial de commits"
+                    class="guide-image" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Paso 15: Resultado Final -->
+            <div class="step">
+              <div class="step-number">15</div>
+              <div class="step-content">
+                <h3><i class="fas fa-star"></i> ¡Felicitaciones!</h3>
+                <p>
+                  ¡Tu contribución ha sido exitosa! Ahora apareces en la página colaborativa 
+                  con tu perfil, información y enlaces. Eres oficialmente parte del proyecto.
+                </p>
+                <div class="step-image">
+                  <img
+                    src="../assets/GuiaPasoAPasoV2/Paso15.png"
+                    alt="Paso 15: Resultado final"
+                    class="guide-image" />
+                </div>
+                <div class="info-box success">
+                  <h4>
+                    <i class="fas fa-trophy"></i> ¡Has completado tu primera contribución!
+                  </h4>
+                  <ul>
+                    <li>✅ <strong>Fork realizado</strong> correctamente</li>
+                    <li>✅ <strong>Codespace</strong> configurado y usado</li>
+                    <li>✅ <strong>Rama nueva</strong> creada siguiendo GitFlow</li>
+                    <li>✅ <strong>Cambios</strong> realizados y commitados</li>
+                    <li>✅ <strong>Pull Request</strong> creado y aprobado</li>
+                    <li>🎉 <strong>¡Apareces en la página!</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de validaciones automáticas -->
+      <section class="validation-section">
+        <div class="validation-container">
+          <h2 class="section-title">
+            <i class="fas fa-robot"></i>
+            Sistema de Validación Automática
+          </h2>
+          <div class="validation-grid">
+            <div class="validation-item">
+              <div class="validation-icon success">
+                <i class="fas fa-check"></i>
+              </div>
+              <h3>Validación de Formato</h3>
+              <p>
+                El sistema verifica que el formato de tu contribución sea
+                correcto y que todos los campos requeridos estén presentes.
+              </p>
+            </div>
+            <div class="validation-item">
+              <div class="validation-icon info">
+                <i class="fas fa-sync"></i>
+              </div>
+              <h3>Auto-merge</h3>
+              <p>
+                Si todas las validaciones pasan, tu PR será automáticamente
+                mergeado y aparecerás en la página principal.
+              </p>
+            </div>
+            <div class="validation-item">
+              <div class="validation-icon warning">
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
+              <h3>Corrección de Errores</h3>
+              <p>
+                Si hay errores, recibirás comentarios específicos sobre qué
+                corregir. Puedes hacer nuevos commits para solucionarlos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de ejemplos -->
+      <section class="examples-section">
+        <div class="examples-container">
+          <h2 class="section-title">
+            <i class="fas fa-code"></i>
+            Ejemplos de Contribución
+          </h2>
+          <div class="examples-grid">
+            <div class="example-item">
+              <h3>
+                <i class="fas fa-check-circle" style="color: #10b981"></i>
+                Ejemplo Correcto
+              </h3>
+              <div class="code-example">
+                <pre><code>{
+  name: "Ana María González",
+  nickname: "anagonzalez",
+  github: "https://github.com/anagonzalez",
+  linkedin: "https://linkedin.com/in/ana-gonzalez-dev",
+  description: "Estudiante de Ingeniería de Sistemas especializada en desarrollo web",
+  hobbies: ["Programación", "Lectura", "Yoga", "Fotografía"]
+},</code></pre>
+              </div>
+            </div>
+            <div class="example-item">
+              <h3>
+                <i class="fas fa-times-circle" style="color: #ef4444"></i>
+                Errores Comunes
+              </h3>
+              <div class="error-list">
+                <div class="error-item">
+                  <i class="fas fa-times"></i>
+                  <span>Falta la coma al final del objeto</span>
+                </div>
+                <div class="error-item">
+                  <i class="fas fa-times"></i>
+                  <span>URL de GitHub incompleta o incorrecta</span>
+                </div>
+                <div class="error-item">
+                  <i class="fas fa-times"></i>
+                  <span>Más de 4 hobbies en el array</span>
+                </div>
+                <div class="error-item">
+                  <i class="fas fa-times"></i>
+                  <span
+                    >Descripción demasiado larga (más de 150 caracteres)</span
+                  >
+                </div>
+                <div class="error-item">
+                  <i class="fas fa-times"></i>
+                  <span>Nickname duplicado (ya existe en el sistema)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-left">
+              <div class="footer-logo">
+                <div>
+                  <p class="footer-description"><b>Dav082004🚩</b></p>
+                </div>
+              </div>
+              <p class="footer-description">
+                Proyecto colaborativo para aprender Git, GitHub y desarrollo web
+              </p>
+              <div class="footer-partners">
+                <div class="partner-logos">
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="partner-link">
+                    <img src="../assets/Github.png" alt="GitHub" class="partner-logo" />
+                  </a>
+                  <span class="partner-separator">×</span>
+                  <a href="https://www.linkedin.com/company/dsc-utp/" target="_blank" rel="noopener noreferrer" class="partner-link">
+                    <img src="../assets/Logo_DSCUTP.png" alt="Developer Student Clubs UTP" class="partner-logo" />
+                  </a>
+                  <span class="partner-separator">×</span>
+                  <a href="https://www.linkedin.com/company/xperience-campus/" target="_blank" rel="noopener noreferrer" class="partner-link">
+                    <img src="../assets/Logo_XperienceCampus.jpg" alt="Xperience Campus" class="partner-logo" />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="footer-right">
+              <div class="footer-links">
+                <a
+                  href="https://github.com/Dav082004/XperienceCampusWorkshop"
+                  target="_blank">
+                  <i class="fab fa-github"></i>
+                  Repositorio
+                </a>
+                <a href="../index.html">
+                  <i class="fas fa-home"></i>
+                  Volver al Inicio
+                </a>
+              </div>
+              <p class="footer-credit">
+                <i class="fas fa-heart" style="color: #ff6b6b"></i>
+                Hecho con amor por la comunidad
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="../js/como-contribuir.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
