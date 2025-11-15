@@ -30,6 +30,20 @@
     ]
   },
   {
+    "name": "Elias Rivera",
+    "nickname": "EliasSRU06",
+    "github": "https://github.com/EliasSRU06",
+    "linkedin": "https://linkedin.com/in/elias-stefano-rivera-ulloa",
+    "image": "https://github.com/EliasSRU06.png",
+    "description": "Data Analyst in progress",
+    "hobbies": [
+      "Programación",
+      "F1",
+      "Gaming",
+      "Hockey"
+    ]
+  },
+  {
     "name": "David Parrales",
     "nickname": "iYouDavid",
     "github": "https://github.com/iYouDavid",
@@ -75,6 +89,21 @@
     ]
   },
   {
+    "name": "Ronaldinho Villanueva",
+    "nickname": "ronaldvillanueva",
+    "github": "https://github.com/ronnann03",
+    "linkedin": "https://linkedin.com/in/ronaldinho-villanueva-poma-0a37a4315",
+    "instagram": "https://instagram.com/rowaa_03",
+    "image": "https://github.com/ronnann03.png",
+    "description": "Full-stack developer apasionada por Python y Base de datos ",
+    "hobbies": [
+      "Programación",
+      "basketball",
+      "Gaming",
+      "Fotografía"
+    ]
+  },
+  {
     "name": "OctocatChambeador",
     "nickname": "xde268106-lab",
     "github": "https://github.com/xde268106-lab",
@@ -87,6 +116,20 @@
       "Open Source",
       "Github",
       "IoT"
+    ]
+  },
+  {
+    "name": "yefer alegre olano",
+    "nickname": "yeferalegre",
+    "github": "https://github.com/BANAKIRX",
+    "instagram": "https://instagram.com/yeferalegre/",
+    "image": "https://github.com/yeferalegre.png",
+    "description": "Full-stack developer apasionada por JavaScript y React",
+    "hobbies": [
+      "Programación",
+      "Open Source",
+      "Gaming",
+      "Fotografía"
     ]
   }
 ]
