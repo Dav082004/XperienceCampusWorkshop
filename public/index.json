@@ -1,5 +1,20 @@
 [
   {
+    "name": "Dangelo León Valderrama",
+    "nickname": "dangelo26leon",
+    "github": "https://github.com/dangelo26leon",
+    "linkedin": "https://linkedin.com/in/dangelo-leon",
+    "instagram": "https://instagram.com/dangelo__26",
+    "image": "https://github.com/dangelo26leon.png",
+    "description": "Full-stack developer apasionada por JavaScript, Python, Angular y React ",
+    "hobbies": [
+      "Programación",
+      "Open Source",
+      "Gaming",
+      "Fotografía"
+    ]
+  },
+  {
     "name": "David",
     "nickname": "Dav082004",
     "github": "https://github.com/Dav082004",
