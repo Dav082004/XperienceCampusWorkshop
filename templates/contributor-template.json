@@ -2,9 +2,9 @@
   "name": "María González",
   "nickname": "mariagonzalez",
   "github": "https://github.com/mariagonzalez",
-  "linkedin": "https://linkedin.com/in/maria-gonzalez-dev", // Opcional
-  "instagram": "https://instagram.com/maria.codes", // Opcional
-  "image": "https://github.com/mariagonzalez.png", // Avatar de GitHub o URL personalizada
+  "linkedin": "https://linkedin.com/in/maria-gonzalez-dev", 
+  "instagram": "https://instagram.com/maria.codes",
+  "image": "https://github.com/mariagonzalez.png", 
   "description": "Full-stack developer apasionada por JavaScript y React",
   "hobbies": ["Programación", "Open Source", "Gaming", "Fotografía"]
 }
