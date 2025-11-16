@@ -43,8 +43,8 @@ function validateContributor(contributor, filename) {
     errors.push("El campo 'hobbies' debe ser un array");
   } else if (contributor.hobbies.length < 1) {
     errors.push("Debe haber al menos 1 hobby");
-  } else if (contributor.hobbies.length > 4) {
-    errors.push("No puede haber más de 4 hobbies");
+  } else if (contributor.hobbies.length > 5) {
+    errors.push("No puede haber más de 5 hobbies");
   }
 
   if (errors.length > 0) {
