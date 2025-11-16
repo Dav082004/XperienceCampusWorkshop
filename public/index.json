@@ -15,6 +15,32 @@
     ]
   },
   {
+    "name": "David Josue Valderrama Ascate",
+    "nickname": "Danvid29",
+    "github": "https://github.com/Danvid29",
+    "linkedin": "https://linkedin.com/in/maria-gonzalez-dev",
+    "instagram": "https://instagram.com/danvid29",
+    "image": "https://github.com/Danvid29.png",
+    "description": "Full-stack developer apasionado por JS y Bases de datos",
+    "hobbies": [
+      "Programación",
+      "Open Source",
+      "VideoJuegos",
+      "Gym"
+    ]
+  },
+  {
+    "name": "Darrell Jerome Perez Ramirez",
+    "nickname": "DarrellJPR",
+    "github": "https://github.com/perezramirezdarrelljerome-byte",
+    "image": "https://github.com/DarrelJPR.png",
+    "description": "Student at the Technological University of Peru",
+    "hobbies": [
+      "Programación",
+      "Gaming"
+    ]
+  },
+  {
     "name": "David",
     "nickname": "Dav082004",
     "github": "https://github.com/Dav082004",
@@ -41,6 +67,36 @@
       "F1",
       "Gaming",
       "Hockey"
+    ]
+  },
+  {
+    "name": "Fabrizio Beltran",
+    "nickname": "fabrizioBC2005",
+    "github": "https://github.com/fabrizioBC2005",
+    "linkedin": "https://linkedin.com/in/Fabrizio-Beltran-dev",
+    "instagram": "https://instagram.com/fabribel",
+    "image": "https://github.com/fabriziobeltran.png",
+    "description": "Full-stack developer apasionada por Sprint, React, Angular y JavaScript",
+    "hobbies": [
+      "Programación",
+      "sports",
+      "Music",
+      "VideoGames"
+    ]
+  },
+  {
+    "name": "Sofia Flores",
+    "nickname": "flowerSof",
+    "github": "https://github.com/flowerSof",
+    "linkedin": "https://www.linkedin.com/in/sofia-flores-garcia-7082272b6/",
+    "instagram": "https://www.instagram.com/sha_flowerss/",
+    "image": "https://github.com/flowerSof.png",
+    "description": "Data Analytics, Full-stack developer apasionada por java, python",
+    "hobbies": [
+      "Programación",
+      "Open Source",
+      "Gaming",
+      "read"
     ]
   },
   {
@@ -89,6 +145,49 @@
     ]
   },
   {
+    "name": "Leonardo Manuel Castro Rufino",
+    "nickname": "Naroth",
+    "github": "https://github.com/Narot-h",
+    "instagram": "https://instagram.com/mcastro.leo.88",
+    "image": "https://avatars.githubusercontent.com/u/244219333?v=4",
+    "description": "Systems Engineering student at UTP",
+    "hobbies": [
+      "Programación",
+      "ciclismo",
+      "Gaming",
+      "Fotografía",
+      "Cocinar"
+    ]
+  },
+  {
+    "name": "Alessandro Javier",
+    "nickname": "Nightom2006",
+    "github": "https://github.com/Nightom2006",
+    "linkedin": "https://www.linkedin.com/in/alessandro-cahuana-luis-b222622b6/",
+    "image": "https://pbs.twimg.com/media/FECVV6aXEAQUzAP?format=jpg&name=4096x4096",
+    "description": "A good man",
+    "hobbies": [
+      "Programación",
+      "Gaming",
+      "Negociante"
+    ]
+  },
+  {
+    "name": "Ola",
+    "nickname": "Ola",
+    "github": "https://github.com/Ola",
+    "linkedin": "https://linkedin.com/in/Ola",
+    "instagram": "https://instagram.com/Ola",
+    "image": "https://github.com/Ola.png",
+    "description": "Full-stack developer apasionada por JavaScript y React",
+    "hobbies": [
+      "Programación",
+      "Open Source",
+      "Gaming",
+      "Fotografía"
+    ]
+  },
+  {
     "name": "Ronaldinho Villanueva",
     "nickname": "ronaldvillanueva",
     "github": "https://github.com/ronnann03",
@@ -116,6 +215,21 @@
       "Artes",
       "Gaming",
       "Musica"
+    ]
+  },
+  {
+    "name": "Andy Gomez",
+    "nickname": "TheGoat",
+    "github": "https://github.com/AndyGomezRamirez",
+    "linkedin": "https://linkedin.com/in/andy-gonmez",
+    "instagram": "https://instagram.com/sammgomezx",
+    "image": "https://github.com/andygomez.png",
+    "description": "Full-stack developer apasionado por Java y JavaScript",
+    "hobbies": [
+      "Programación",
+      "Futbol",
+      "Gaming",
+      "Música"
     ]
   },
   {
