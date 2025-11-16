@@ -173,21 +173,6 @@
     ]
   },
   {
-    "name": "Ola",
-    "nickname": "Ola",
-    "github": "https://github.com/Ola",
-    "linkedin": "https://linkedin.com/in/Ola",
-    "instagram": "https://instagram.com/Ola",
-    "image": "https://github.com/Ola.png",
-    "description": "Full-stack developer apasionada por JavaScript y React",
-    "hobbies": [
-      "Programación",
-      "Open Source",
-      "Gaming",
-      "Fotografía"
-    ]
-  },
-  {
     "name": "Rodolfo Rojas",
     "nickname": "rodolphorojas",
     "github": "https://github.com/rodolphorojas",
